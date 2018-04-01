@@ -18,7 +18,7 @@ animations = [ {
 custom_solver_bias = 0.0
 extents = Vector2( 10, 10 )
 
-[node name="Player" type="Area2D" index="0"]
+[node name="Player" type="Area2D"]
 
 input_pickable = true
 gravity_vec = Vector2( 0, 1 )
@@ -43,5 +43,7 @@ animation = "left"
 position = Vector2( -0.0833582, 0.937861 )
 scale = Vector2( 3.39719, 1.79697 )
 shape = SubResource( 2 )
+
+[connection signal="body_entered" from="." to="." method="_on_Player_body_entered"]
 
 

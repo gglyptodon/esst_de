@@ -1,5 +1,6 @@
 extends Area2D
 
+signal hit
 export (int) var SPEED  # how fast the player will move (pixels/sec)
 var screensize  # size of the game window
 
@@ -43,3 +44,15 @@ func _process(delta):
     # Called every frame. Delta is time since last frame.
     # Update game logic here.
 
+
+
+func _on_Player_body_entered(body):
+    hide() # Player disappears after being hit
+    emit_signal("hit")
+    $CollisionShape2D.disabled = true
+
+
+func start(pos):
+    position = pos
+    show()
+    $CollisionShape2D.disabled = false

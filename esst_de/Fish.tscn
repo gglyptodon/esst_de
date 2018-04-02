@@ -17,7 +17,7 @@ animations = [ {
 "speed": 5.0
 } ]
 
-[node name="Fish" type="RigidBody2D" index="0"]
+[node name="Fish" type="RigidBody2D"]
 
 input_pickable = false
 collision_layer = 1
@@ -57,5 +57,7 @@ animation = "fall"
 [node name="VisibilityNotifier2D" type="VisibilityNotifier2D" parent="." index="2"]
 
 rect = Rect2( -10, -10, 20, 20 )
+
+[connection signal="screen_exited" from="VisibilityNotifier2D" to="." method="_on_VisibilityNotifier2D_screen_exited"]
 
 

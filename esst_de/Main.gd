@@ -1,6 +1,7 @@
 extends Node2D
 
 export (PackedScene) var Fish
+var time_remaining
 var score
 
 func _ready():
@@ -11,28 +12,37 @@ func _ready():
 
 func game_over():
     print("game over")
-    $ScoreTimer.stop()
+    $CountdownTimer.stop()
     $FishTimer.stop()
     $HUD.show_game_over()
 
 
+func inc_score():
+    print("++")
+    score +=1
+    #$CountdownTimer.stop()
+    #$FishTimer.stop()
+    $HUD.update_score(score)
+
+
 func new_game():
-    score = 60
+    time_remaining = 12
+    score = 0
     print("ng")
     $Player.start($StartPosition.position)
     $StartTimer.start()
-    $HUD.update_score(score)
+    $HUD.update_time_remaining(time_remaining)
     $HUD.show_message("Get Ready")
 
 func _on_StartTimer_timeout():
     $FishTimer.start()
-    $ScoreTimer.start()
+    $CountdownTimer.start()
 
-func _on_ScoreTimer_timeout():
-    score -= 1
-    if score <= 0:
+func _on_CountdownTimer_timeout():
+    time_remaining -= 1
+    if time_remaining <= 0:
         game_over()
-    $HUD.update_score(score)
+    $HUD.update_time_remaining(time_remaining)
 
 
 func _on_FishTimer_timeout():

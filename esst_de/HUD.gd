@@ -15,10 +15,11 @@ func show_game_over():
     $MessageLabel.text = "Dodge the\nCreeps!"
     $MessageLabel.show()
 
+func update_time_remaining(time_remaining):
+    $TimerLabel.text = str(time_remaining)
+
 func update_score(score):
     $ScoreLabel.text = str(score)
-
-
 
 func _on_StartButton_pressed():
     $StartButton.hide()

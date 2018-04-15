@@ -17,7 +17,7 @@ func game_over():
 
 
 func new_game():
-    score = 0
+    score = 60
     print("ng")
     $Player.start($StartPosition.position)
     $StartTimer.start()
@@ -29,7 +29,9 @@ func _on_StartTimer_timeout():
     $ScoreTimer.start()
 
 func _on_ScoreTimer_timeout():
-    score += 1
+    score -= 1
+    if score <= 0:
+        game_over()
     $HUD.update_score(score)
 
 

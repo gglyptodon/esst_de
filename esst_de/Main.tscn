@@ -12,7 +12,7 @@ _data = {
 "points": PoolVector2Array( 0, 0, 0, 0, -463.5, -300.5, 0, 0, 0, 0, -195.5, -293.5, 0, 0, 0, 0, 28.1826, -269.012, 0, 0, 0, 0, 356.5, -201.5, 0, 0, 0, 0, -463.5, -300.5 )
 }
 
-[node name="Main" type="Node2D"]
+[node name="Main" type="Node2D" index="0"]
 
 script = ExtResource( 1 )
 Fish = ExtResource( 2 )

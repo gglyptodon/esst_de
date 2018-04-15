@@ -6,8 +6,9 @@ var score
 
 func _ready():
     randomize()
-	
-	
+    score = 0
+    time_remaining = 60
+
 
 
 func game_over():
